@@ -35,7 +35,7 @@ const Registro = () => {
         }
         obtenerdatos()
     },[])
-
+    //@dvpinedo
     const guardarEstudiantes = async (e)=>{
         e.preventDefault()
 
@@ -99,7 +99,7 @@ const Registro = () => {
         }catch(error){
             console.log(error)
         }
-        //
+    
     }
     
     const editar= item =>{
