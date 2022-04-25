@@ -99,7 +99,7 @@ const Registro = () => {
         }catch(error){
             console.log(error)
         }
-        
+        //
     }
     
     const editar= item =>{
