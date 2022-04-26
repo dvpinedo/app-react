@@ -12,11 +12,10 @@ const Registro = () => {
     const [id, setId]=React.useState('')
 
     const [edicion, setEdicion]=React.useState(false)
-    const [error, setError]=React.useState(null)
+    const [setError]=React.useState(null)
     const [listaEstudiantes,setListaEstudiantes]=React.useState([])
 
-    const db = firebase.firestore();
-
+ 
     React.useEffect(()=>{
         const obtenerdatos= async() =>{
             try{
@@ -24,7 +23,7 @@ const Registro = () => {
                 const data = await db.collection('students').get()
                 const arrayData=data.docs.map (item =>(
                     {
-                        id: item.id, ... item.data()
+                        id: item.id, ...item.data()
                     }
                 ))
                 //console.log(arrayData)
@@ -79,7 +78,7 @@ const Registro = () => {
             ciudadEstudiante: ciudad,
             programaEstudiante: programa
           }
-          const data= await db.collection('students').add(student)
+          await db.collection('students').add(student)
             setListaEstudiantes([
             ...listaEstudiantes,
             {id:nanoid(),nombreEstudiante: nombre, apellidoEstudiante: apellido, correoEstudiante: correo, direccionEstudiante: direccion, telefonoEstudiante: telefono, ciudadEstudiante: ciudad, programaEstudiante: programa}
